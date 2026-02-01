@@ -1,6 +1,7 @@
 import pandas as pd
 from pathlib import Path
 from PIL import Image
+import imagehash
 import matplotlib.pyplot as plt
 
 ROOT = Path("Classes")
@@ -13,6 +14,7 @@ for f in files:
     try:
         with Image.open(f) as img:
             w, h = img.size
+            img_hash = imagehash.phash(img)
     except Exception:
         continue
 
@@ -22,12 +24,14 @@ for f in files:
         f.stem,
         f.suffix.lstrip("."),
         w,
-        h
+        h,
+        w * h,
+        img_hash
     ])
 
 data = pd.DataFrame(
     data,
-    columns=["file_path", "depth", "file_name", "file_ext", "width", "height"]
+    columns=["file_path", "depth", "file_name", "file_ext", "width", "height", "num_pixels", "phash"]
 )
 
 data["aspect_ratio"] = data["width"] / data["height"]
