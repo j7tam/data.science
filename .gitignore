@@ -21,3 +21,4 @@ rad.json
 #Test results file
 TestResults.xml
 Classes/
+.DS_Store
