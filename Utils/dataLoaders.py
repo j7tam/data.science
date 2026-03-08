@@ -4,6 +4,27 @@ from .MushroomDataset import MushroomDataset
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 
+def make_loader(
+    df,
+    tfms,
+    class_to_idx,
+    CLASSES,
+    batch_size,
+    num_workers,
+    device,
+    is_train=False
+):
+    ds = MushroomDataset(
+        df, transform=tfms, class_to_idx=class_to_idx, classes=CLASSES, root_dir=PROJECT_ROOT / "Classes"
+    )
+    pin = device.type == "cuda"
+    return DataLoader(ds,
+            batch_size=batch_size,
+            shuffle=is_train,
+            num_workers=num_workers,
+            pin_memory=pin,
+        )
+    
 def make_loaders(
     train,
     val,
