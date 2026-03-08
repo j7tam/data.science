@@ -1,25 +1,35 @@
 #!/bin/bash
+set -euo pipefail
 
 echo "Downloading Mushroom Classification Dataset from Kaggle..."
 
 # check if kaggle CLI is installed
-if ! command -v kaggle &> /dev/null
-then
+if ! command -v kaggle &> /dev/null; then
     echo "Kaggle CLI not found."
     echo "Install it with: pip install kaggle"
-    exit
+    exit 1
 fi
 
-# create dataset folder
-mkdir -p Classes
+ZIP_NAME="mushroom-classification-dataset.zip"
+TMP_DIR="tmp_mushroom_download"
 
-# download dataset
-kaggle datasets download -d zedsden/mushroom-classification-dataset
+# clean temp dir
+rm -rf "$TMP_DIR"
+mkdir -p "$TMP_DIR"
 
-# unzip dataset
-unzip mushroom-classification-dataset.zip -d Classes
+# download dataset into temp dir
+kaggle datasets download -d zedsden/mushroom-classification-dataset -p "$TMP_DIR"
 
-# remove zip file
-rm mushroom-classification-dataset.zip
+# unzip into temp dir
+unzip -q "$TMP_DIR/$ZIP_NAME" -d "$TMP_DIR"
+
+# remove old Classes if needed
+rm -rf Classes/
+
+# move the actual Classes folder to project root
+mv "./$TMP_DIR/mushroom_dataset/Classes" .
+
+# clean up
+rm -rf "$TMP_DIR"
 
 echo "Dataset downloaded and extracted to ./Classes"

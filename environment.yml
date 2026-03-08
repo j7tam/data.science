@@ -1,0 +1,22 @@
+name: mushroom-cls
+channels:
+  - pytorch
+  - conda-forge
+dependencies:
+  - python=3.11
+  - pip
+  - pytorch=2.10.0
+  - torchvision=0.25.0
+  - pandas=2.3.3
+  - numpy=2.2.6
+  - scikit-learn=1.8.0
+  - matplotlib=3.10.8
+  - seaborn=0.13.2
+  - pillow=12.1.1
+  - tqdm=4.67.1
+  - imbalanced-learn=0.14.1
+  - jupyterlab
+  - ipykernel
+  - pip:
+      - timm==1.0.24
+      - ImageHash==4.3.2
