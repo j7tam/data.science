@@ -55,7 +55,124 @@ data.science/
 
 ---
 
-# Dataset Overview
+# Step 1: Clone the Repository
+
+Clone the repository **in Terminal**:
+
+```bash
+git clone https://github.com/j7tam/data.science.git
+cd data.science
+```
+
+All commands below should be run **in Terminal**, from the **repository root directory**:
+
+```text
+data.science/
+```
+
+---
+
+# Step 2: Download the Dataset
+
+The dataset is too large to store in this repository, so it must be downloaded separately.
+
+Dataset source: 
+https://www.kaggle.com/datasets/zedsden/mushroom-classification-dataset
+
+---
+
+## Step 2.1: Install Kaggle CLI
+
+Install Kaggle CLI **in Terminal**:
+
+```bash
+pip install kaggle
+```
+
+Verify installation **in Terminal**:
+
+```bash
+kaggle --version
+```
+
+---
+
+## Step 2.2: Configure Kaggle API Credentials
+
+Go to the following page **in your browser**:
+
+```text
+https://www.kaggle.com/settings
+```
+
+Under **API**, click **Create New Token**.
+
+Then run the following commands **in Terminal**:
+
+Create the Kaggle configuration directory:
+
+```bash
+mkdir -p ~/.kaggle
+```
+
+Copy your Kaggle username and API token, then create the credentials file (replace `YOUR_KAGGLE_USERNAME` and `YOUR_KAGGLE_API_TOKEN` with your actual values):
+
+```bash
+echo '{"username":"YOUR_KAGGLE_USERNAME","key":"YOUR_KAGGLE_API_TOKEN"}' > ~/.kaggle/kaggle.json
+```
+
+Set permissions:
+
+```bash
+chmod 600 ~/.kaggle/kaggle.json
+```
+
+Verify the setup **in Terminal**:
+
+```bash
+kaggle datasets list
+```
+
+---
+
+## Step 2.3: Download the Dataset
+
+From the **repository root directory**, run **in Terminal**:
+
+```bash
+chmod +x download_data.sh
+./download_data.sh
+```
+
+The script will:
+
+1. Download the dataset from Kaggle
+2. Extract the files
+3. Move the images into:
+
+```text
+Classes/
+```
+
+---
+
+## Expected Folder After Download
+
+After running the dataset download script, the repository should contain:
+
+```text
+Classes/
+├── edible/
+├── conditionally_edible/
+├── poisonous/
+└── deadly/
+```
+
+The CSV files in `Data/splits/` reference these image paths.
+
+---
+
+## Dataset Overview
 
 The original mushroom dataset contains four classes:
 
@@ -84,7 +201,7 @@ Data/splits/
 
 ---
 
-# Prerequisites
+# Step 3:Install Required Tools
 
 Before running the setup scripts, make sure the following tools are installed.
 
@@ -112,7 +229,11 @@ conda --version
 
 Git is needed to clone the repository.
 
-Verify the installation **in Terminal**:
+### Install Git
+
+https://git-scm.com/install/
+
+After installation, verify the installation **in Terminal**:
 
 ```bash
 git --version
@@ -131,24 +252,7 @@ and register the notebook kernel for this project.
 
 ---
 
-# Clone the Repository
-
-Clone the repository **in Terminal**:
-
-```bash
-git clone https://github.com/j7tam/data.science.git
-cd data.science
-```
-
-All commands below should be run **in Terminal**, from the **repository root directory**:
-
-```text
-data.science/
-```
-
----
-
-# Environment Setup
+# Step 4: Environment Setup
 
 From the **repository root directory**, run **in Terminal**:
 
@@ -170,7 +274,7 @@ Python (mushroom-cls)
 
 ---
 
-# Launch Jupyter
+# Step 5: Launch Jupyter
 
 After the environment is created, run the following **in Terminal**, from the **repository root directory**:
 
@@ -188,109 +292,6 @@ Python (mushroom-cls)
 ```
 
 3. Run the notebook cells
-
----
-
-# Download the Dataset
-
-The dataset is too large to store in this repository, so it must be downloaded separately.
-
-Dataset source:
-
-```text
-https://www.kaggle.com/datasets/zedsden/mushroom-classification-dataset
-```
-
----
-
-## Step 1: Install Kaggle CLI
-
-Install Kaggle CLI **in Terminal**:
-
-```bash
-pip install kaggle
-```
-
-Verify installation **in Terminal**:
-
-```bash
-kaggle --version
-```
-
----
-
-## Step 2: Configure Kaggle API Credentials
-
-Go to the following page **in your browser**:
-
-```text
-https://www.kaggle.com/settings
-```
-
-Under **API**, click **Create New Token**.
-
-Then run the following commands **in Terminal**:
-
-Create the Kaggle configuration directory:
-
-```bash
-mkdir -p ~/.kaggle
-```
-
-Create the credentials file:
-
-```bash
-echo '{"username":"YOUR_USERNAME","key":"YOUR_API_TOKEN"}' > ~/.kaggle/kaggle.json
-```
-
-Set permissions:
-
-```bash
-chmod 600 ~/.kaggle/kaggle.json
-```
-
-Verify the setup **in Terminal**:
-
-```bash
-kaggle datasets list
-```
-
----
-
-## Step 3: Download the Dataset
-
-From the **repository root directory**, run **in Terminal**:
-
-```bash
-chmod +x download_data.sh
-./download_data.sh
-```
-
-The script will:
-
-1. Download the dataset from Kaggle
-2. Extract the files
-3. Move the images into:
-
-```text
-Classes/
-```
-
----
-
-# Expected Folder After Download
-
-After running the dataset download script, the repository should contain:
-
-```text
-Classes/
-├── edible/
-├── conditionally_edible/
-├── poisonous/
-└── deadly/
-```
-
-The CSV files in `Data/splits/` reference these image paths.
 
 ---
 
@@ -334,6 +335,8 @@ Pretrained weights are stored in:
 ```text
 04_Model/best_models/
 ```
+
+> **Note**: Only some pretrained model weights are stored in the repository due to GitHub file size limits. If pretrained weights are missing, you can train the models using the notebooks in `04_Model/` or contact the project team for access to the full set of pretrained weights.
 
 ---
 
