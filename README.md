@@ -99,39 +99,35 @@ kaggle --version
 
 ## Step 2.2: Configure Kaggle API Credentials
 
-Go to the following page **in your browser**:
-
-```text
-https://www.kaggle.com/settings
-```
+Go to this page **in your browser**: https://www.kaggle.com/settings
 
 Under **API**, click **Create New Token**.
 
 Then run the following commands **in Terminal**:
 
-Create the Kaggle configuration directory:
+1. Create the Kaggle configuration directory:
 
-```bash
-mkdir -p ~/.kaggle
-```
+    ```bash
+    mkdir -p ~/.kaggle
+    ```
 
-Copy your Kaggle username and API token, then create the credentials file (replace `YOUR_KAGGLE_USERNAME` and `YOUR_KAGGLE_API_TOKEN` with your actual values):
+2. Copy your Kaggle username and API token, then create the credentials file (replace `YOUR_KAGGLE_USERNAME` and `YOUR_KAGGLE_API_TOKEN` with your actual values):
 
-```bash
-echo '{"username":"YOUR_KAGGLE_USERNAME","key":"YOUR_KAGGLE_API_TOKEN"}' > ~/.kaggle/kaggle.json
-```
+    ```bash
+    echo '{"username":"YOUR_KAGGLE_USERNAME","key":"YOUR_KAGGLE_API_TOKEN"}' > ~/.kaggle/kaggle.json
+    ```
 
-Set permissions:
+3. Set permissions:
 
-```bash
-chmod 600 ~/.kaggle/kaggle.json
-```
+    ```bash
+    chmod 600 ~/.kaggle/kaggle.json
+    ```
 
-Verify the setup **in Terminal**:
+4. Verify the setup **in Terminal**:
 
-```bash
-kaggle datasets list
-```
+    ```bash
+    kaggle datasets list
+    ```
 
 ---
 
@@ -193,11 +189,7 @@ Final modeling classes:
 * conditionally edible
 * toxic
 
-Dataset splits used for training and evaluation are stored in:
-
-```text
-Data/splits/
-```
+Dataset splits used for training and evaluation are stored in `Data/splits/`.
 
 ---
 
