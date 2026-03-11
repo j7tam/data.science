@@ -17,14 +17,14 @@ def make_loader(
     ds = MushroomDataset(
         df, transform=tfms, class_to_idx=class_to_idx, classes=CLASSES, root_dir=PROJECT_ROOT / "Classes"
     )
-    pin = device.type == "cuda"
+    pin = device.type in ["cuda", "mps"]
     return DataLoader(ds,
             batch_size=batch_size,
             shuffle=is_train,
             num_workers=num_workers,
             pin_memory=pin,
         )
-    
+
 def make_loaders(
     train,
     val,
@@ -83,3 +83,5 @@ def make_loaders(
             pin_memory=pin,
         ),
     }
+
+
