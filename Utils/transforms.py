@@ -18,6 +18,27 @@ def get_train_tfms_mild():
         ]
     )
 
+def get_train_tfms_medium():
+    return transforms.Compose(
+        [
+            transforms.Resize((IMG_SIZE, IMG_SIZE)),
+            transforms.RandomHorizontalFlip(p=0.5),
+            transforms.RandomRotation(20),
+            transforms.ColorJitter(
+                brightness=0.15,
+                contrast=0.15,
+                saturation=0.15
+            ),
+            transforms.RandomAffine(
+                degrees=0,
+                translate=(0.05, 0.05),
+                scale=(0.9, 1.1),
+            ),
+            transforms.ToTensor(),
+            transforms.Normalize(IMAGENET_MEAN, IMAGENET_STD),
+        ]
+    )
+
 def get_train_tfms_strong():
     return transforms.Compose(
         [
