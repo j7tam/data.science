@@ -20,3 +20,4 @@ dependencies:
   - pip:
       - timm==1.0.24
       - ImageHash==4.3.2
+      - grad-cam==1.5.0

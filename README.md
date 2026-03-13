@@ -8,60 +8,6 @@ A computer vision project that trains deep learning models to classify mushrooms
 
 ---
 
-# Repository Structure
-
-```text
-data.science/
-├── Data/                          # CSV splits + metadata
-│   ├── mushroomBalanced.csv
-│   ├── mushroomDedupExact.csv
-│   ├── mushroomDedupNear.csv
-│   ├── mushroomDedupNearMerged.csv
-│   ├── mushroomDetailedPaths.csv
-│   ├── mushroomPaths.csv
-│   └── splits/
-│       ├── train.csv
-│       ├── val.csv
-│       └── test.csv
-│
-├── 01_Preprocessing/               # Data cleaning and split generation
-├── 02_EDA/                         # Exploratory data analysis
-├── 03_DataPipelineAndTransformers/ # Data pipeline + transforms
-├── 04_Model/                       # Training + evaluation notebooks
-│   ├── best_models/
-│   │   ├── resnet18_best.pth
-│   │   └── resnet18_toxic_priority_best.pth
-│   │   ├── resnet50_best.pth
-│   │   └── resnet50_robust_best.pth
-│   ├── 04_01_SplitDataset.ipynb
-│   ├── 04_02_ResNet18.ipynb
-│   ├── 04_02_ResNet18ToxicPriority.ipynb
-│   ├── 04_03_RESNET50.ipynb
-│   └── 04_04_SwinTinyTransformer.ipynb
-│
-├── Graphs/                         # Visualizations and figures
-│   ├── resnet50_robust_best.pth
-│   ├── resnet50_baseline_best.pth
-resnet50_baseline_final_confusion_matrix.png
-├── Reports/                        # Project reports
-├── Utils/                          # Dataset + training utilities
-│   ├── constants.py
-│   ├── constants1.py
-│   ├── dataLoaders.py
-│   ├── lookahead.py
-│   ├── MushroomDataset.py
-│   ├── project_utils.py
-│   └── transforms.py
-│
-├── Classes/                        # Mushroom image dataset (downloaded separately)
-├── download_data.sh                # Dataset download script
-├── setup_env.sh                    # Environment setup script
-├── environment.yml
-└── README.md
-```
-
----
-
 # Step 1: Clone the Repository
 
 Clone the repository **in Terminal**:
@@ -270,6 +216,7 @@ The script will:
 ```text
 Python (mushroom-cls)
 ```
+You can add a short note that users may launch notebooks from an IDE as well. Here is a clean, README-ready version:
 
 ---
 
@@ -293,6 +240,27 @@ Python (mushroom-cls)
 3. Run the notebook cells
 
 ---
+
+## Step 5 Alternative: Use an IDE
+
+You may also open the notebooks using an IDE such as **VS Code**, **PyCharm**, or the classic **Jupyter Notebook** interface.
+
+If using an IDE:
+
+1. Open the repository folder
+2. Open the notebook file (`.ipynb`)
+3. Select the kernel:
+
+```text
+Python (mushroom-cls)
+```
+
+4. Run the cells normally
+
+> ⚠️ Make sure the IDE is using the `mushroom-cls` Conda environment as the interpreter.
+
+---
+
 
 # Workflow
 
