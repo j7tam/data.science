@@ -355,12 +355,13 @@ This project supports reproducibility by:
 
 Project Group 8
 
-* Chiu-Chiu (JoJo) Lin
-* Nicholas Shor
-* Joanna Tam
-* [Xuewen Yang](https://www.linkedin.com/in/xuewen-daphne-yang/)
+* Chiu-Chiu (JoJo) Lin: jol145@ucsd.edu
+* Nicholas Shor: nshor@ucsd.edu
+* Joanna Tam: j7tam@ucsd.edu
+* Xuewen Yang: xuy001@ucsd.edu
 
 University of California, San Diego
+
 DSC 288R Capstone Project
 
 ---
