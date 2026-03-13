@@ -358,7 +358,7 @@ Project Group 8
 * Chiu-Chiu (JoJo) Lin
 * Nicholas Shor
 * Joanna Tam
-* Xuewen Yang
+* [Xuewen Yang](https://www.linkedin.com/in/xuewen-daphne-yang/)
 
 University of California, San Diego
 DSC 288R Capstone Project
